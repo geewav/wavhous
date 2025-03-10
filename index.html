@@ -100,15 +100,15 @@
             background-color: #d3d3d3;
         }
 
-        /* Style for X feed */
         .x-feed {
             position: fixed;
             bottom: 0;
             right: 0;
-            /* Optional: enhance visibility over background image */
-            /* background-color: rgba(255, 255, 255, 0.8); */
-            /* border-top-left-radius: 10px; */
-            /* padding: 10px; */
+            width: 200px; /* Matches data-width */
+            height: 300px; /* Matches data-height */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white for visibility */
+            padding: 10px; /* Optional padding */
+            z-index: 1000; /* Ensures it’s on top */
         }
 
         /* Responsive adjustments */
@@ -156,14 +156,13 @@
             <p>© 2025 wavhous</p>
         </div>
     </footer>
-    <!-- X timeline embed -->
     <div class="x-feed">
         <a class="twitter-timeline" 
-           data-width="300" 
-           data-height="400" 
-           data-theme="light" 
-           href="https://twitter.com/geewav?ref_src=twsrc%5Etfw">Tweets by @geewav</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        data-width="200" 
+        data-height="300" 
+        data-theme="dark"
+        href="https://twitter.com/geewav">Tweets by @geewav</a>
     </div>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 </body>
 </html>

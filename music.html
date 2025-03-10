@@ -107,6 +107,8 @@
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
+        }
+        #album-art.loaded {
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
         }
         @media (max-width: 600px) {
@@ -228,6 +230,14 @@
             let currentTrackIndex = -1;
             const progressBar = document.getElementById('progress-bar');
 
+            albumArt.addEventListener('load', () => {
+                albumArt.classList.add('loaded');
+            });
+
+            if (albumArt.complete) {
+                albumArt.classList.add('loaded');
+            }
+
             audio.addEventListener('timeupdate', () => {
                 if (audio.duration) {
                     const progress = (audio.currentTime / audio.duration) * 100;
@@ -249,6 +259,10 @@
                 const art = track.getAttribute('data-art');
                 audio.src = src;
                 albumArt.src = art;
+                albumArt.classList.remove('loaded');
+                albumArt.addEventListener('load', () => {
+                    albumArt.classList.add('loaded');
+                }, { once: true });
                 audio.play();
                 playPauseBtn.textContent = 'Pause';
             }

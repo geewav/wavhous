@@ -9,6 +9,7 @@
     <meta property="og:url" content="https://www.wavhous.com/music">
     <title>music player</title>
     <link rel="icon" type="image/svg+xml" href="svg/wavhous_logo_blackborder.svg">
+    <link rel="preload" href="music/blank.png" as="image">
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <style>
         body {
@@ -107,9 +108,8 @@
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
-        }
-        #album-art.loaded {
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+            transition: filter 0.2s ease-in-out;
         }
         @media (max-width: 600px) {
             .album-art-wrapper {
@@ -230,14 +230,6 @@
             let currentTrackIndex = -1;
             const progressBar = document.getElementById('progress-bar');
 
-            albumArt.addEventListener('load', () => {
-                albumArt.classList.add('loaded');
-            });
-
-            if (albumArt.complete) {
-                albumArt.classList.add('loaded');
-            }
-
             audio.addEventListener('timeupdate', () => {
                 if (audio.duration) {
                     const progress = (audio.currentTime / audio.duration) * 100;
@@ -259,10 +251,6 @@
                 const art = track.getAttribute('data-art');
                 audio.src = src;
                 albumArt.src = art;
-                albumArt.classList.remove('loaded');
-                albumArt.addEventListener('load', () => {
-                    albumArt.classList.add('loaded');
-                }, { once: true });
                 audio.play();
                 playPauseBtn.textContent = 'Pause';
             }

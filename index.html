@@ -65,9 +65,12 @@
             width: 200px;
         }
 
-        .button img {
-            width: 100px;
-            height: auto;
+        .image-container {
+            width: 100%;
+            height: 120px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .button p {
@@ -124,11 +127,11 @@
         <main>
             <div class="button-container">
                 <a href="https://wavhous.com/g" class="button">
-                    <img src="geewav.png" alt="₲">
+                    <div class="image-container" style="background-image: url('geewav.png');"></div>
                     <p>₲</p>
                 </a>
                 <a href="https://wavhous.com/music" class="button">
-                    <img src="svg/music_player.svg" alt="music player">
+                    <div class="image-container" style="background-image: url('svg/music_player.svg');"></div>
                     <p>music player</p>
                 </a>
             </div>

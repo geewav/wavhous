@@ -100,6 +100,18 @@
             background-color: #d3d3d3;
         }
 
+        /* Style for X feed */
+        .x-feed {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            /* Optional: enhance visibility over background image */
+            /* background-color: rgba(255, 255, 255, 0.8); */
+            /* border-top-left-radius: 10px; */
+            /* padding: 10px; */
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 600px) {
             .button-container {
                 display: flex;
@@ -108,6 +120,10 @@
             }
             .button {
                 width: 80%;
+            }
+            /* Hide X feed on small screens to prevent overlap */
+            .x-feed {
+                display: none;
             }
         }
     </style>
@@ -119,18 +135,14 @@
         </header>
         <main>
             <div class="button-container">
-                <a href="https://wavhous.com/g" class="button"> <!-- Changed href to https://wavhous.com/g -->
+                <a href="https://wavhous.com/g" class="button">
                     <img src="geewav.png" alt="₲">
                     <p>₲</p>
                 </a>
-                <a href="https://wavhous.com/music" class="button"> <!-- Changed href to music-player.html -->
+                <a href="https://wavhous.com/music" class="button">
                     <img src="svg/music_player.svg" alt="music player">
                     <p>music player</p>
                 </a>
-                <!-- <a href="#" class="button">
-                    <img src="image3.jpg" alt="Image 3">
-                    <p>Description 3</p>
-                </a> -->
             </div>
         </main>
     </div>
@@ -144,5 +156,14 @@
             <p>© 2025 wavhous</p>
         </div>
     </footer>
+    <!-- X timeline embed -->
+    <div class="x-feed">
+        <a class="twitter-timeline" 
+           data-width="300" 
+           data-height="400" 
+           data-theme="light" 
+           href="https://twitter.com/geewav?ref_src=twsrc%5Etfw">Tweets by @geewav</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
 </body>
 </html>

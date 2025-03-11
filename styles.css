@@ -1,0 +1,67 @@
+/* Global styles */
+body {
+    background-image: url('wavhous_desktop.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Layout styles */
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px; /* Note: In the first page, it was padding: 10vh 20px 20px 20px */
+    box-sizing: border-box;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo {
+    max-width: 200px; /* Note: In the first page, it was 250px */
+    width: 100%;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.9));
+}
+
+/* Footer styles (using the first page's footer with hover enlarge effect) */
+footer {
+    text-align: center;
+    margin-top: auto;
+    font-size: 15px; /* Note: In the second and third pages, it was 13px */
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Note: In the second and third pages, it was 20px */
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.footer-links a:hover {
+    transform: scale(2.1); /* Hover enlarge effect from the first page */
+}
+
+footer p {
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+}

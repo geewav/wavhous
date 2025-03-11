@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="official page for ₲">
     <meta property="og:title" content="₲">
-    <meta property="og:description" content="₲">
+    <meta property="og:description" content="official page for ₲">
     <meta property="og:image" content="https://www.wavhous.com/wavhous_banner.png">
     <meta property="og:url" content="https://www.wavhous.com/g">
     <title>₲</title>
     <link rel="icon" type="image/svg+xml" href="svg/wavhous_logo_blackborder.svg">
+    <link rel="preload" as="image" href="wavhous_banner.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <style>
         body {
@@ -51,7 +55,7 @@
             width: 100%;
             max-width: 300px;
             padding: 10px;
-            margin: 10px 0;
+            margin: 5px 0;
             background-color: #f0f0f0;
             color: #000000;
             text-decoration: none;
@@ -76,6 +80,21 @@
             left: 10px;
             top: 50%;
             transform: translateY(-50%);
+            transition: transform 0.2s;
+        }
+        .button:hover .icon {
+            transform: translateY(-50%) scale(1.1);
+        }
+        @media (min-width: 600px) {
+            main {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .button {
+                width: calc(50% - 10px);
+            }
         }
         footer {
             text-align: center;
@@ -102,41 +121,39 @@
 <body>
     <div class="container">
         <header>
-            <img src="geewav.png" alt="Logo" class="logo">
+            <img src="geewav.png" alt="₲ logo" class="logo" loading="lazy">
         </header>
         <main>
-            <a href="https://x.com/geewav" class="button">
-                <img src="svg/x.svg" alt="X" class="icon">
+            <a href="https://x.com/geewav" class="button" rel="noopener noreferrer">
+                <img src="svg/x.svg" alt="X logo" class="icon" loading="lazy">
                 <span>₲ on X</span>
             </a>
-            <a href="https://open.spotify.com/artist/4pWvwo6gnyGWs9qRC5SQxd?si=mTWoYXsyTJ6AsKxw9CIekw" class="button">
-                <img src="svg/spotify.svg" alt="Spotify" class="icon">
+            <a href="https://open.spotify.com/artist/4pWvwo6gnyGWs9qRC5SQxd?si=mTWoYXsyTJ6AsKxw9CIekw" class="button" rel="noopener noreferrer">
+                <img src="svg/spotify.svg" alt="Spotify logo" class="icon" loading="lazy">
                 <span>₲ on Spotify</span>
             </a>
-            <a href="https://music.apple.com/us/artist/%E2%82%B2/1792684645" class="button">
-                <img src="svg/apple.svg" alt="Apple Music" class="icon">
+            <a href="https://music.apple.com/us/artist/%E2%82%B2/1792684645" class="button" rel="noopener noreferrer">
+                <img src="svg/apple.svg" alt="Apple Music logo" class="icon" loading="lazy">
                 <span>₲ on Apple Music</span>
             </a>
-            <a href="https://youtube.com/@geewav" class="button">
-                <img src="svg/youtube.svg" alt="YouTube" class="icon">
+            <a href="https://youtube.com/@geewav" class="button" rel="noopener noreferrer">
+                <img src="svg/youtube.svg" alt="YouTube logo" class="icon" loading="lazy">
                 <span>₲ on YouTube</span>
             </a>
             <a href="https://wavhous.com/music" class="button">
-                <img src="svg/music_player.svg" alt="music player" class="icon">
+                <img src="svg/music_player.svg" alt="music player icon" class="icon" loading="lazy">
                 <span>music player</span>
             </a>
         </main>
     </div>
     <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://wavhous.com">Home</a>
-                <a href="https://wavhous.com/g">₲</a>
-                <a href="https://x.com/wavhous">X</a>
-                <a href="https://youtube.com/@wavhous">YouTube</a>
-            </div>
-            <p>© 2025 wavhous</p>
+        <div class="footer-links">
+            <a href="https://wavhous.com">Home</a>
+            <a href="https://wavhous.com/g">₲</a>
+            <a href="https://x.com/wavhous" target="_blank" rel="noopener noreferrer">X</a>
+            <a href="https://youtube.com/@wavhous" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
+        <p>© 2025 wavhous</p>
     </footer>
 </body>
 </html>

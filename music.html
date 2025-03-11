@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="wavhous music">
+    <meta name="description" content="music player">
+    <meta property="og:title" content="music player">
     <meta property="og:description" content="wavhous music">
     <meta property="og:image" content="https://www.wavhous.com/wavhous_banner.png">
     <meta property="og:url" content="https://www.wavhous.com/music">
     <title>music player</title>
     <link rel="icon" type="image/svg+xml" href="svg/wavhous_logo_blackborder.svg">
-    <link rel="preload" href="music/blank.png" as="image">
+    <link rel="preload" as="image" href="wavhous_banner.png">
+    <link rel="preload" as="image" href="music/blank.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <style>
         body {
@@ -186,7 +190,7 @@
             <div class="player-container">
                 <div class="player">
                     <div class="album-art-wrapper">
-                        <img id="album-art" src="music/blank.png" alt="Album Art">
+                        <img id="album-art" src="music/blank.png" alt="Album Art" loading="lazy">
                     </div>
                     <input type="range" id="progress-bar" value="0" min="0" max="100" step="1">
                     <div class="controls">
@@ -194,7 +198,7 @@
                         <button id="play-pause">Play</button>
                         <button id="next">Next</button>
                     </div>
-                    <audio id="audio"></audio>
+                    <audio id="audio" preload="none"></audio>
                 </div>
                 <div class="track-list">
                     <ul>
@@ -209,15 +213,13 @@
         </main>
     </div>
     <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://wavhous.com">Home</a>
-                <a href="https://wavhous.com/g">₲</a>
-                <a href="https://x.com/wavhous">X</a>
-                <a href="https://youtube.com/@wavhous">YouTube</a>
-            </div>
-            <p>© 2025 wavhous</p>
+        <div class="footer-links">
+            <a href="https://wavhous.com">Home</a>
+            <a href="https://wavhous.com/g">₲</a>
+            <a href="https://x.com/wavhous" rel="noopener">X</a>
+            <a href="https://youtube.com/@wavhous" rel="noopener">YouTube</a>
         </div>
+        <p>© 2025 wavhous</p>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

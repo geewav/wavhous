@@ -1,9 +1,8 @@
-© 2025 wavhous
-
-follow @wavhous on X for updates
+<!-- © 2025 wavhous -->
+<!-- follow @wavhous on X for updates -->
 
 <!-- MEMBERS -->
-@geewav
+<!-- @geewav -->
 
 
 

@@ -66,8 +66,9 @@
             position: relative;
         }
         .button span {
-            flex: 1;
-            text-align: center;
+        flex: 1;
+        text-align: center;
+        transition: transform 0.2s;
         }
         .button:hover {
             background-color: #969696;
@@ -84,6 +85,9 @@
         }
         .button:hover .icon {
             transform: translateY(-50%) scale(1.1);
+        }
+        .button:hover span {
+            transform: scale(1.1);
         }
         @media (min-width: 600px) {
             main {

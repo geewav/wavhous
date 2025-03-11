@@ -52,6 +52,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 0px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -63,18 +64,25 @@
             transition: background-color 0.3s, box-shadow 0.3s;
         }
         .button img {
-            width: 100%;
-            height: auto;
-            max-height: 120px;
+            height: 100px;
+            width: auto;
             object-fit: contain;
+            transition: transform 0.2s;
+            margin-top: 25px;
         }
         .button p {
-            margin-top: 10px;
             font-size: 25px;
+            transition: transform 0.2s;
         }
         .button:hover {
             background-color: #d3d3d3;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.9);
+        }
+        .button:hover img {
+            transform: scale(1.1);
+        }
+        .button:hover p {
+            transform: scale(1.1);
         }
         @media (max-width: 600px) {
             .button-container {

@@ -37,42 +37,44 @@
             flex-direction: column;
             align-items: center;
         }
-        .controls {
+        .control-bar {
             display: flex;
-            justify-content: center;
-            margin-top: 15px;
+            align-items: center;
+            width: 100%;
+            margin: 10px 0;
+            gap: 10px;
         }
-        .controls button {
-            margin: 0 8px;
-            padding: 8px 16px;
-            font-size: 13px;
-            background-color: #212121;
-            color: #fff;
+        .control-bar button {
+            width: 32px;
+            height: 32px;
+            background-color: #ffffff;
             border: none;
-            border-radius: 10px;
+            border-radius: 50%;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: background-color 0.2s, box-shadow 0.2s;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
         }
-        .controls button:hover {
-            background-color: #555;
+        .control-bar button:hover {
+            background-color: #dddddd;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
         }
         #progress-bar {
-            width: 100%;
-            margin: 10px 0;
-            -webkit-appearance: none;
-            appearance: none;
-            background: #ddd;
+            flex-grow: 1;
             height: 5px;
+            background: #ddd;
             border-radius: 10px;
             outline: none;
+            -webkit-appearance: none;
+            appearance: none;
         }
         #progress-bar::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             background: #333;
             border-radius: 50%;
             cursor: pointer;
@@ -155,11 +157,26 @@
                     <div class="album-art-wrapper">
                         <img id="album-art" src="png/musicplayer.png" alt="Album Art" loading="lazy">
                     </div>
-                    <input type="range" id="progress-bar" value="0" min="0" max="100" step="1">
-                    <div class="controls">
-                        <button id="prev">Previous</button>
-                        <button id="play-pause">Play</button>
-                        <button id="next">Next</button>
+                    <div class="control-bar">
+                        <button id="prev" title="Previous">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 4H8V20H6V4ZM18 4L10 12L18 20V4Z" fill="#000000"/>
+                            </svg>
+                        </button>
+                        <button id="play-pause" title="Play">
+                            <svg id="play-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5V19L19 12L8 5Z" fill="#000000"/>
+                            </svg>
+                            <svg id="pause-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                <path d="M6 4H10V20H6V4ZM14 4H18V20H14V4Z" fill="#000000"/>
+                            </svg>
+                        </button>
+                        <button id="next" title="Next">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L6 12L16 20V4ZM18 4H20V20H18V4Z" fill="#000000"/>
+                            </svg>
+                        </button>
+                        <input type="range" id="progress-bar" value="0" min="0" max="100" step="1">
                     </div>
                     <audio id="audio" preload="none"></audio>
                 </div>
@@ -188,16 +205,18 @@
             const audio = document.getElementById('audio');
             const albumArt = document.getElementById('album-art');
             const playPauseBtn = document.getElementById('play-pause');
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
             const prevBtn = document.getElementById('prev');
             const nextBtn = document.getElementById('next');
             const trackList = document.querySelectorAll('.track-list li');
-            let currentTrackIndex = -1;
             const progressBar = document.getElementById('progress-bar');
+            let currentTrackIndex = -1;
 
             audio.addEventListener('timeupdate', () => {
-                if (audio.duration) {
-                    const progress = (audio.currentTime / audio.duration) * 100;
-                    progressBar.value = progress;
+                const duration = audio.duration;
+                if (duration) {
+                    progressBar.value = (audio.currentTime / duration) * 100;
                 }
             });
 
@@ -211,12 +230,11 @@
                 trackList.forEach(li => li.classList.remove('active'));
                 trackList[index].classList.add('active');
                 const track = trackList[index];
-                const src = track.getAttribute('data-src');
-                const art = track.getAttribute('data-art');
-                audio.src = src;
-                albumArt.src = art;
+                audio.src = track.getAttribute('data-src');
+                albumArt.src = track.getAttribute('data-art');
                 audio.play();
-                playPauseBtn.textContent = 'Pause';
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
             }
 
             trackList.forEach((track, index) => {
@@ -227,12 +245,21 @@
             });
 
             playPauseBtn.addEventListener('click', () => {
-                if (audio.paused) {
-                    audio.play();
-                    playPauseBtn.textContent = 'Pause';
+                if (currentTrackIndex === -1) {
+                    if (trackList.length > 0) {
+                        playTrack(0);
+                        currentTrackIndex = 0;
+                    }
                 } else {
-                    audio.pause();
-                    playPauseBtn.textContent = 'Play';
+                    if (audio.paused) {
+                        audio.play();
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'block';
+                    } else {
+                        audio.pause();
+                        playIcon.style.display = 'block';
+                        pauseIcon.style.display = 'none';
+                    }
                 }
             });
 
@@ -256,7 +283,8 @@
                     currentTrackIndex++;
                 } else {
                     audio.pause();
-                    playPauseBtn.textContent = 'Play';
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
                 }
             });
         });

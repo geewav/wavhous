@@ -1,6 +1,6 @@
 © 2025 wavhous
 
-current version: (1.1.0)
+current public version: (1.1)
 
 follow @wavhous on X for updates
 

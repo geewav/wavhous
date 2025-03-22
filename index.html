@@ -9,111 +9,44 @@
     <meta property="og:image" content="https://wavhous.com/png/wavhous_desktop.png">
     <meta property="og:url" content="https://wavhous.com">
     <title>wavhous</title>
-    <link rel="preload" as="image" href="png/wavhous_desktop.png">
+    <link rel="preload" as="image" href="svg/wavhous_logo_blackwhiteborder.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
     <link rel="manifest" href="favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" href="favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
-    <style>
-        .container {
-            padding: 10vh 20px 20px 20px;
-        }
-        .logo {
-            max-width: 250px;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-        .button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0px;
-            padding: 10px;
-            border: 1px solid #aaaaaa;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #000;
-            background-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
-            width: 200px;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-        .button img {
-            height: 100px;
-            width: auto;
-            object-fit: contain;
-            transition: transform 0.2s;
-            margin-top: 25px;
-        }
-        .button p {
-            font-size: 25px;
-            transition: transform 0.2s;
-        }
-        .button:hover {
-            background-color: #aaaaaa;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.9);
-        }
-        .button:hover img {
-            transform: scale(1.1);
-        }
-        .button:hover p {
-            transform: scale(1.1);
-        }
-        @media (max-width: 600px) {
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            .button {
-                width: 80%;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <img src="svg/wavhous_logo_blackwhiteborder.svg" alt="wavhous logo" class="logo">
+            <img src="svg/wavhous_logo_blackwhiteborder.svg" alt="wavhous logo" class="logo" loading="lazy">
         </header>
-        <main>
-            <div class="button-container">
-                <a href="https://wavhous.com/g" class="button">
-                    <img src="png/geewav.png" alt="₲ icon" loading="lazy">
-                    <p>₲</p>
-                </a>
-                <a href="https://music.wavhous.com" class="button">
-                    <img src="svg/music_player.svg" alt="music player icon" loading="lazy">
-                    <p>music player</p>
-                </a>
-            </div>
+        <main role="main">
+            <a href="https://wavhous.com/g" class="button" aria-label="₲">
+                <img src="png/geewav.png" alt="₲ icon" class="icon" loading="lazy">
+                <span>₲</span>
+            </a>
+            <a href="https://music.wavhous.com" class="button" aria-label="music player" target="_blank" rel="noopener noreferrer">
+                <img src="svg/music_player.svg" alt="music player icon" class="icon" loading="lazy">
+                <span>music player</span>
+            </a>
+            <a href="https://music.wavhous.com/beats" class="button" aria-label="beat player" target="_blank" rel="noopener noreferrer">
+                <img src="svg/beat_player.svg" alt="beat player icon" class="icon" loading="lazy">
+                <span>beat player</span>
+            </a>
         </main>
     </div>
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-links">
             <a href="https://wavhous.com">HOME</a>
             <a href="https://music.wavhous.com">MUSIC</a>
-            <!-- <a href="https://x.com/wavhous" target="_blank" rel="noopener noreferrer">X</a> -->
             <a href="https://youtube.com/@wavhous" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
         </div>
         <p>© 2025 wavhous</p>

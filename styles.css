@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url('png/wavhous_desktop.png');
     background-size: cover;
@@ -13,10 +17,13 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 400px;
     width: 100%;
     padding: 20px;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
 }
 
 header {
@@ -28,6 +35,52 @@ header {
     max-width: 200px;
     width: 100%;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.9));
+    transition: transform 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f0f0f0;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    position: relative;
+}
+
+.button:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+.button span {
+    flex: 1;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.button:hover {
+    background-color: #969696;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.9);
+    transform: scale(1.05);
 }
 
 footer {
@@ -53,8 +106,13 @@ footer {
     transition: transform 0.2s;
 }
 
+.footer-links a:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
 .footer-links a:hover {
-    transform: scale(2.1);
+    transform: scale(1.5);
 }
 
 footer p {
@@ -62,5 +120,32 @@ footer p {
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
 }
 
+.icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s;
+}
 
-/* @geewav */
+.button:hover .icon {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.button:hover span {
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    body {
+        background-image: url('png/wavhous_mobile.png');
+    }
+    .container {
+        padding: 10px;
+    }
+    .logo {
+        max-width: 250px;
+    }
+}

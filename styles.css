@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #c0c0c0;
+    --text-color: #000000;
+    --font-size-medium: 15px;
+    --shadow-dark: 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -32,9 +40,9 @@ header {
 }
 
 .logo {
-    max-width: 200px;
+    max-width: 250px;
     width: 100%;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.9));
+    filter: drop-shadow(var(--shadow-dark));
     transition: transform 0.2s ease;
 }
 
@@ -56,18 +64,18 @@ main {
     max-width: 400px;
     padding: 10px;
     margin: 5px 0;
-    background-color: #f0f0f0;
-    color: #000000;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     text-decoration: none;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: var(--font-size-medium);
     transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    box-shadow: var(--shadow-dark);
     position: relative;
 }
 
 .button:focus {
-    outline: 2px solid #000;
+    outline: 2px solid var(--text-color);
     outline-offset: 2px;
 }
 
@@ -78,16 +86,16 @@ main {
 }
 
 .button:hover {
-    background-color: #969696;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.9);
-    transform: scale(1.05);
+    background-color: var(--secondary-color);
+    box-shadow: var(--shadow-dark);
 }
 
 footer {
     text-align: center;
     margin-top: auto;
-    font-size: 15px;
-    color: #ffffff;
+    font-size: var(--font-size-medium);
+    color: var(--primary-color);
+    filter: drop-shadow(var(--shadow-dark));
     background-color: transparent;
 }
 
@@ -99,9 +107,9 @@ footer {
 }
 
 .footer-links a {
-    color: #ffffff;
+    color: var(--primary-color);
     text-decoration: none;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+    text-shadow: var(--shadow-dark);
     display: inline-block;
     transition: transform 0.2s;
 }
@@ -111,8 +119,8 @@ footer {
 }
 
 footer p {
-    color: #ffffff;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+    color: var(--primary-color);
+    text-shadow: var(--text-color);
 }
 
 .icon {
@@ -143,11 +151,11 @@ footer p {
     }
     
     .logo {
-        max-width: 250px;
+        max-width: 200px;
     }
 
     .button {
-        font-size: 12px;
+        font-size: var(--font-size-medium);
     }
 
     footer {
@@ -159,10 +167,10 @@ footer p {
     }
 
     .footer-links a {
-        font-size: 12px;
+        font-size: var(--font-size-medium);
     }
 
     footer p {
-        font-size: 12px;
+        font-size: var(--font-size-medium);
     }
 }

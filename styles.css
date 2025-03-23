@@ -106,11 +106,6 @@ footer {
     transition: transform 0.2s;
 }
 
-.footer-links a:focus {
-    outline: 2px solid #fff;
-    outline-offset: 2px;
-}
-
 .footer-links a:hover {
     transform: scale(1.5);
 }
@@ -141,11 +136,30 @@ footer p {
 @media (max-width: 600px) {
     body {
         background-image: url('png/wavhous_mobile.png');
+        font-size: 13px;
     }
+
     .container {
         padding: 10px;
     }
+    
     .logo {
         max-width: 250px;
+    }
+
+    footer {
+        padding: 5px 0;
+    }
+
+    .footer-links {
+        gap: 20px;
+    }
+
+    .footer-links a {
+        font-size: 13px;
+    }
+
+    footer p {
+        font-size: 13px;
     }
 }

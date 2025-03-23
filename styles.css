@@ -136,7 +136,6 @@ footer p {
 @media (max-width: 600px) {
     body {
         background-image: url('png/wavhous_mobile.png');
-        font-size: 13px;
     }
 
     .container {
@@ -145,6 +144,10 @@ footer p {
     
     .logo {
         max-width: 250px;
+    }
+
+    .button {
+        font-size: 13px;
     }
 
     footer {

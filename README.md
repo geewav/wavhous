@@ -4,7 +4,7 @@
 
 current public version: (1.2)
 
-latest update: consolidated music player
+latest update: consolidate music player
 
 follow @wavhous on X for updates
 

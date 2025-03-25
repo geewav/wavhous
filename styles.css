@@ -20,7 +20,8 @@ body {
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
     margin: 0;
     font-family: 'Kanit', sans-serif;
 }
@@ -34,8 +35,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: 1;
     justify-content: center;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 header {

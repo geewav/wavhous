@@ -74,6 +74,14 @@ main {
     position: relative;
 }
 
+button.button {
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
 .button:focus {
     outline: 2px solid var(--text-color);
     outline-offset: 2px;
@@ -141,6 +149,10 @@ footer p {
     transform: scale(1.1);
 }
 
+.mobile-only {
+    display: none;
+}
+
 @media (max-width: 600px) {
     body {
         background-image: url('png/wavhous_mobile.png');
@@ -172,5 +184,9 @@ footer p {
 
     footer p {
         font-size: var(--font-size-medium);
+    }
+
+    .mobile-only {
+        display: flex;
     }
 }

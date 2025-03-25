@@ -37,6 +37,10 @@
                 <img src="svg/music_player.svg" alt="music player icon" class="icon" loading="lazy">
                 <span>music player</span>
             </a>
+            <a id="add-to-home-button" href="#" class="button mobile-only" role="button" aria-label="add to home screen">
+                <img src="svg/apps.svg" alt="add to home screen icon" class="icon" loading="lazy">
+                <span>add to home screen</span>
+            </a>
         </main>
     </div>
     <footer role="contentinfo">
@@ -47,5 +51,26 @@
         </div>
         <p>© 2025 wavhous</p>
     </footer>
+    <script>
+        let deferredPrompt;
+            window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            });
+            document.getElementById('add-to-home-button').addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the default link navigation
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+              }
+            });
+    </script>
 </body>
 </html>

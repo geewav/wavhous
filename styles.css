@@ -6,6 +6,7 @@
     --text-color: #000000;
     --font-size-medium: 15px;
     --shadow-dark: 0 3px 6px rgba(0, 0, 0, 0.6);
+    --footer-height: 60px;
 }
 
 * {
@@ -19,8 +20,6 @@ body {
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     margin: 0;
     font-family: 'Kanit', sans-serif;
@@ -29,11 +28,14 @@ body {
 .container {
     max-width: 400px;
     width: 100%;
+    margin: 0 auto;
     padding: 20px;
+    padding-bottom: var(--footer-height);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     flex-grow: 1;
+    justify-content: center;
 }
 
 header {
@@ -53,6 +55,7 @@ header {
 }
 
 main {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,13 +95,176 @@ main {
     box-shadow: var(--shadow-dark);
 }
 
-footer {
+.icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s;
+}
+
+.button:hover .icon {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.button:hover span {
+    transform: scale(1.1);
+}
+
+.player-container {
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-dark);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.control-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.control-bar button {
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: var(--shadow-dark);
+}
+
+.control-bar button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: var(--shadow-dark);
+    transform: scale(1.1);
+}
+
+#progress-bar {
+    flex-grow: 1;
+    height: 5px;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#progress-bar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.album-art-wrapper {
+    width: 300px;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-dark);
+}
+
+#album-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    will-change: opacity;
+}
+
+.track-list {
+    flex-grow: 1;
+    max-height: 245px;
+    overflow-y: auto;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.track-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.track-list::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+}
+
+.track-list::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+.track-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.track-list li {
+    padding: 8px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: var(--font-size-medium);
+    margin-bottom: 5px;
+    line-height: 1.2;
     text-align: center;
-    margin-top: auto;
+}
+
+.track-list li:hover {
+    background-color: var(--secondary-color);
+}
+
+.track-list li.active {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
     font-size: var(--font-size-medium);
     color: var(--primary-color);
     filter: drop-shadow(var(--shadow-dark));
     background-color: transparent;
+    z-index: 10;
 }
 
 .footer-links {
@@ -122,25 +288,7 @@ footer {
 
 footer p {
     color: var(--primary-color);
-    text-shadow: var(--text-color);
-}
-
-.icon {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform 0.2s;
-}
-
-.button:hover .icon {
-    transform: translateY(-50%) scale(1.1);
-}
-
-.button:hover span {
-    transform: scale(1.1);
+    text-shadow: var(--shadow-dark);
 }
 
 @media (max-width: 600px) {
@@ -150,14 +298,11 @@ footer p {
 
     .container {
         padding: 10px;
-    }
-    
-    .logo {
-        max-width: 200px;
+        padding-bottom: var(--footer-height);
     }
 
-    .button {
-        font-size: var(--font-size-medium);
+    .page-home .logo, .page-g .logo {
+        max-width: 200px;
     }
 
     footer {
@@ -174,5 +319,49 @@ footer p {
 
     footer p {
         font-size: var(--font-size-medium);
+    }
+
+    .page-music body {
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .page-music .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .page-music main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .page-music .player-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .page-music .album-art-wrapper {
+        width: 100%;
+        max-width: 350px;
+        margin-bottom: 10px;
+    }
+
+    .page-music .control-bar {
+        margin: 5px 0 10px 0;
+        gap: 6px;
+    }
+
+    .page-music .track-list {
+        max-height: 148px;
+        margin: 0;
     }
 }

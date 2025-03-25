@@ -1,0 +1,82 @@
+<!-- music.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="wavhous music player">
+    <meta property="og:title" content="wavhous music">
+    <meta property="og:description" content="wavhous music player">
+    <meta property="og:image" content="https://wavhous.com/png/wavhous_desktop.png">
+    <meta property="og:url" content="https://wavhous.com/music">
+    <title>wavhous music</title>
+    <link rel="preload" as="image" href="music/covers/music_player.png">
+    <link rel="preload" as="image" href="png/wavhous_desktop.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+</head>
+<body class="page-music">
+    <div class="container">
+        <main>
+            <div class="player-container">
+                <div class="player">
+                    <div class="album-art-wrapper">
+                        <img id="album-art" src="music/covers/music_player.png" alt="Album Art" loading="lazy">
+                    </div>
+                    <div class="control-bar">
+                        <button id="prev" title="Previous" aria-label="Previous Track">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 4H8V20H6V4ZM18 4L10 12L18 20V4Z" fill="#000000"/>
+                            </svg>
+                        </button>
+                        <button id="play-pause" title="Play" aria-label="Play or Pause" aria-pressed="false">
+                            <svg id="play-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5V19L19 12L8 5Z" fill="#000000"/>
+                            </svg>
+                            <svg id="pause-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                <path d="M6 4H10V20H6V4ZM14 4H18V20H14V4Z" fill="#000000"/>
+                            </svg>
+                        </button>
+                        <button id="next" title="Next" aria-label="Next Track">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 4L14 12L6 20V4ZM16 4H18V20H16V4Z" fill="#000000"/>
+                            </svg>
+                        </button>
+                        <input type="range" id="progress-bar" value="0" min="0" max="100" step="1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Track Progress">
+                    </div>
+                    <audio id="audio" preload="none"></audio>
+                </div>
+                <div class="track-list">
+                    <ul>
+                        <li data-src="music/tracks/00_Get_Ghost.wav" data-art="music/covers/Get Ghost.png" data-title="Get Ghost - ₲" role="button" tabindex="0" aria-selected="false">Get Ghost - ₲</li>
+                        <li data-src="music/tracks/01_knock,_knock.wav" data-art="music/covers/back home.png" data-title="knock, knock - ₲" role="button" tabindex="0" aria-selected="false">knock, knock - ₲</li>
+                        <li data-src="music/tracks/02_business.wav" data-art="music/covers/back home.png" data-title="business - ₲ (co-prod. TY)" role="button" tabindex="0" aria-selected="false">business - ₲ (co-prod. TY)</li>
+                        <li data-src="music/tracks/03_by_any_means.wav" data-art="music/covers/back home.png" data-title="by any means - ₲ feat. Shibby & Po!" role="button" tabindex="0" aria-selected="false">by any means - ₲ feat. Shibby & Po!</li>
+                        <li data-src="music/tracks/04_welcome_to_my_world.wav" data-art="music/covers/back home.png" data-title="welcome to my world - ₲ feat. Slick & D Bones" role="button" tabindex="0" aria-selected="false">welcome to my world - ₲ feat. Slick & D Bones</li>
+                        <li data-src="music/tracks/00_NO_CAP.wav" data-art="music/covers/NO CAP.png" data-title="NO CAP - ₲" role="button" tabindex="0" aria-selected="false">NO CAP - ₲</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="https://wavhous.com">HOME</a>
+            <a href="https://wavhous.com/music">MUSIC</a>
+            <a href="https://youtube.com/@wavhous" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
+        </div>
+        <p>© 2025 wavhous</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

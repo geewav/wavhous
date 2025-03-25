@@ -1,6 +1,10 @@
+<!-- README.md -->
+
 © 2025 wavhous
 
-current public version: (1.1)
+current public version: (1.2)
+
+latest update: consolidated music player
 
 follow @wavhous on X for updates
 

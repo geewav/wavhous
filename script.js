@@ -6,6 +6,14 @@ const pauseIcon = document.getElementById('pause-icon');
 const progressBar = document.getElementById('progress-bar');
 const trackListItems = document.querySelectorAll('.track-list li');
 
+trackListItems.forEach(item => {
+    const text = item.textContent;
+    item.textContent = '';
+    const span = document.createElement('span');
+    span.textContent = text;
+    item.appendChild(span);
+});
+
 let currentTrackIndex = 0;
 let isPlaying = false;
 

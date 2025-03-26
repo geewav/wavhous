@@ -1,11 +1,9 @@
-/* styles.css */
-
 :root {
     --primary-color: #ffffff;
     --secondary-color: #c0c0c0;
     --text-color: #000000;
     --font-size-medium: 15px;
-    --shadow-dark: 0 3px 6px rgba(0, 0, 0, 0.6);
+    --shadow-dark: 0 3px 6px rgba(0, 0, 0, 0.7);
     --footer-height: 60px;
 }
 
@@ -208,7 +206,7 @@ main {
 
 .track-list {
     flex-grow: 1;
-    max-height: 245px;
+    max-height: 220px;
     overflow-y: auto;
     padding: 5px;
     margin-top: 10px;
@@ -245,6 +243,8 @@ main {
     margin-bottom: 5px;
     line-height: 1.2;
     text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .track-list li:hover {
@@ -256,6 +256,34 @@ main {
     font-weight: bold;
 }
 
+.track-list li span {
+    display: inline-block;
+    white-space: nowrap;
+    animation: none;
+}
+
+.track-list li.active span {
+    animation: scroll-left-right 20s linear infinite;
+}
+
+@keyframes scroll-left-right {
+    0% {
+        transform: translateX(0%);
+    }
+    25% {
+        transform: translateX(-50%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    75% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -263,7 +291,7 @@ footer {
     width: 100%;
     text-align: center;
     font-size: var(--font-size-medium);
-    color: var(--primary-color);
+    color: var(--text-color);
     filter: drop-shadow(var(--shadow-dark));
     background-color: transparent;
     z-index: 10;
@@ -363,7 +391,7 @@ footer p {
     }
 
     .page-music .track-list {
-        max-height: 148px;
+        max-height: 220px;
         margin: 0;
     }
 }
